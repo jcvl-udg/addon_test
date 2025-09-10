@@ -8,6 +8,8 @@ Blender Add-on operators module.
 from bpy.types import Operator
 from bpy.ops import mesh
 
+from test import pruebini
+
 
 class ADDONNAME_OT_create_cube(Operator):
     """Operator to create a primitive cube in the scene."""
@@ -15,7 +17,10 @@ class ADDONNAME_OT_create_cube(Operator):
     bl_label = "Create cube"
 
     def execute(self, context):
+        props = context.scene.lsystem_props
         mesh.primitive_cube_add()
+        pruebini()
+        self.report({'INFO'}, f"Props: {str(props)}")
         return {"FINISHED"}
 
 

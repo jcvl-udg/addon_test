@@ -11,7 +11,7 @@ from bpy.ops import mesh
 # importing local libs
 from .test import pruebini
 import lsystem
-from lsystem.examples.capsella_bursa_pastoris import simulate_capsella
+from ..lsystem.examples.capsella_bursa_pastoris import simulate_capsella
 
 class ADDONNAME_OT_create_cube(Operator):
     """Operator to create a primitive cube in the scene."""

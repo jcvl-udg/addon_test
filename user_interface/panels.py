@@ -26,8 +26,7 @@ class ADDONNAME_PT_main_panel(Panel):
         props = context.scene.custom_addon_props
         layout.prop(props, "humidity")
         layout.prop(props, "sun_hours")
-        layout.prop(props, "temperature")
-        layout.separator()
+        layout.prop(props, "temperature")        
         
 
 

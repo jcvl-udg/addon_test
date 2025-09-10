@@ -54,6 +54,5 @@ class ADDONNAME_PT_tools(Panel):
 registrable = [
     ADDONNAME_PT_main_panel,
     ADDONNAME_PT_tools,
-    ADDONNAME_OT_create_capsella,
     CustomAddonProps
 ]

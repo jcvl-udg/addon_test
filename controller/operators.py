@@ -32,7 +32,7 @@ class ADDONNAME_OT_create_capsella(Operator):
     bl_idname = "addonname.create_capsella"
     bl_label = "Simular Planta"
     def execute(self, context):
-        props = context.scene.lsystem_props
+        props = context.scene.custom_addon_props
         # humidity = props.humidity
         # sun_hours = props.sun_hours
         # temperature = props.temperature

@@ -14,6 +14,8 @@ from bpy.utils import register_class, unregister_class
 from .user_interface import panels
 from .controller import operators
 
+# importing props
+from .controller.props import CustomAddonProps
 
 bl_info = {
     "name": "Blender Add-on Template",
@@ -33,15 +35,16 @@ _registrable_classes = \
 
 def register():
     """Register all add-on classes in Blender."""
+    register_class(CustomAddonProps)  # Register property group first
+    bpy.types.Scene.custom_addon_props = bpy.props.PointerProperty(type=CustomAddonProps)
     for cls in _registrable_classes:
         register_class(cls)
-        if cls.__name__ == "CustomAddonProps":
-            bpy.types.Scene.custom_addon_props = bpy.props.PointerProperty(type=cls)
 
 def unregister():
     """Unregister all add-on classes in Blender in reverse order to avoid
     dependency issues between classes.
     """
+    del bpy.types.Scene.custom_addon_props
+    unregister_class(CustomAddonProps)
     for cls in reversed(_registrable_classes):
         unregister_class(cls)
-    del bpy.types.Scene.custom_addon_props

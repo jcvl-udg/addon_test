@@ -12,7 +12,7 @@ from bpy.types import Panel
 from ..controller.operators import ADDONNAME_OT_create_cube , ADDONNAME_OT_create_capsella
 
 # importing props
-from ..controller.props import CustomAddonProps
+# from ..controller.props import CustomAddonProps
 
 class ADDONNAME_PT_main_panel(Panel):
     """Main panel for the Blender Add-on."""
@@ -55,6 +55,5 @@ class ADDONNAME_PT_tools(Panel):
 
 registrable = [
     ADDONNAME_PT_main_panel,
-    ADDONNAME_PT_tools,
-    CustomAddonProps
+    ADDONNAME_PT_tools
 ]

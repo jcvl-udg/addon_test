@@ -33,11 +33,9 @@ class ADDONNAME_OT_create_capsella(Operator):
     bl_label = "Simular Planta"
     def execute(self, context):
         props = context.scene.custom_addon_props
-        # humidity = props.humidity
-        # sun_hours = props.sun_hours
-        # temperature = props.temperature
-        self.report({'INFO'}, f"Propsn: {str(props)}")
-        return {"A friend like me"}
+        self.report({'INFO'}, f"Humidity: {props.humidity}, Sun Hours: {props.sun_hours}, Temperature: {props.temperature}")
+        print(f"Humidity: {props.humidity}, Sun Hours: {props.sun_hours}, Temperature: {props.temperature}")
+        return {"FINISHED"}
 
 registrable = [
     ADDONNAME_OT_create_cube,

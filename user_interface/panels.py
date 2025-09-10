@@ -37,10 +37,11 @@ class ADDONNAME_PT_tools(Panel):
     def draw(self, context):
         layout = self.layout
     # Controles de la simulación
-        scene = context.scene
-        layout.prop(scene.custom_addon_props, "humidity")
-        layout.prop(scene.custom_addon_props, "sun_hours")
-        layout.prop(scene.custom_addon_props, "temperature")
+        # scene = context.scene
+        props = context.scene.custom_addon_props
+        layout.prop(props, "humidity")
+        layout.prop(props, "sun_hours")
+        layout.prop(props, "temperature")
         layout.separator()
         layout.operator(
             ADDONNAME_OT_create_cube.bl_idname,

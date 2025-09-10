@@ -27,7 +27,19 @@ class ADDONNAME_OT_create_cube(Operator):
             self.report({'ERROR'}, f"Error al llamar metodo: {str(e)}")
         return {"FINISHED"}
 
+class ADDONNAME_OT_create_capsella(Operator):
+    """Operador para crear un ejemplo de capsella_bursa."""
+    bl_idname = "addonname.create_capsella"
+    bl_label = "Simular Planta"
+    def execute(self, context):
+        props = context.scene.lsystem_props
+        # humidity = props.humidity
+        # sun_hours = props.sun_hours
+        # temperature = props.temperature
+        self.report({'INFO'}, f"Propsn: {str(props)}")
+        return {"A friend like me"}
 
 registrable = [
     ADDONNAME_OT_create_cube,
+    ADDONNAME_OT_create_capsella
 ]

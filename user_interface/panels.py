@@ -5,11 +5,14 @@ Blender Add-on panels module.
 """
 
 # Blender-Python API imports
+import bpy
 from bpy.types import Panel
 
 # Local application imports
-from ..controller.operators import ADDONNAME_OT_create_cube
+from ..controller.operators import ADDONNAME_OT_create_cube , ADDONNAME_OT_create_capsella
 
+# importing props
+from ..controller.props import CustomAddonProps
 
 class ADDONNAME_PT_main_panel(Panel):
     """Main panel for the Blender Add-on."""
@@ -33,12 +36,24 @@ class ADDONNAME_PT_tools(Panel):
 
     def draw(self, context):
         layout = self.layout
+    # Controles de la simulación
+        scene = context.scene
+        layout.prop(scene.custom_addon_props, "humidity")
+        layout.prop(scene.custom_addon_props, "sun_hours")
+        layout.prop(scene.custom_addon_props, "temperature")
+        layout.separator()
         layout.operator(
             ADDONNAME_OT_create_cube.bl_idname,
             text="Create cube", icon="CUBE")
+        layout.separator()
+        layout.operator(
+            ADDONNAME_OT_create_capsella.bl_idname,
+            text="Simular Plante", icon="CUBE")
 
 
 registrable = [
     ADDONNAME_PT_main_panel,
     ADDONNAME_PT_tools,
+    ADDONNAME_OT_create_capsella,
+    CustomAddonProps
 ]

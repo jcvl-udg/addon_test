@@ -5,9 +5,8 @@ Base template for developing Blender add-ons.
 """
 
 # Standard library imports
-
+import bpy
 # Third-party imports
-
 # Blender-Python API imports
 from bpy.utils import register_class, unregister_class
 
@@ -36,7 +35,8 @@ def register():
     """Register all add-on classes in Blender."""
     for cls in _registrable_classes:
         register_class(cls)
-
+        if cls.__name__ == "CustomAddonProps":
+            bpy.types.Scene.custom_addon_props = bpy.props.PointerProperty(type=cls)
 
 def unregister():
     """Unregister all add-on classes in Blender in reverse order to avoid
@@ -44,3 +44,4 @@ def unregister():
     """
     for cls in reversed(_registrable_classes):
         unregister_class(cls)
+    del bpy.types.Scene.custom_addon_props

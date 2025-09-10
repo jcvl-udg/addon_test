@@ -1,9 +1,9 @@
-# Blender Add-on template
+# Blender Add-on (L-system)
 
 ![Python](https://img.shields.io/badge/Python-3.13+-3776AB?logo=python&logoColor=white)
 ![Blender](https://img.shields.io/badge/Blender-4.4.3+-F5792A?logo=blender&logoColor=white)
-
-A structured starting point for developing **Blender** add-ons.
+![L-system](https://github.com/krljg/lsystem)
+![Blender-Addon-Template](https://github.com/doramgajo/blender-addon-template)
 
 ## Development instructions
 
@@ -68,3 +68,8 @@ custom scripts directory/
             ├── other_module.py
             └── ...
 </pre>
+
+
+Este desarrollo contiene una extension de la libreria "L-system" usando 
+el "addon template" como base del desarrollo
+la libreria esta enfocada en el desarrollo de modelos paleobotanicos

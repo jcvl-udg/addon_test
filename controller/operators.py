@@ -34,7 +34,6 @@ class ADDONNAME_OT_create_capsella(Operator):
     def execute(self, context):
         props = context.scene.custom_addon_props
         self.report({'INFO'}, f"Humidity: {props.humidity}, Sun Hours: {props.sun_hours}, Temperature: {props.temperature}")
-        print(f"Humidity: {props.humidity}, Sun Hours: {props.sun_hours}, Temperature: {props.temperature}")
         return {"FINISHED"}
 
 registrable = [

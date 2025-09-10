@@ -17,12 +17,18 @@ from ..controller.props import CustomAddonProps
 class ADDONNAME_PT_main_panel(Panel):
     """Main panel for the Blender Add-on."""
     bl_category = "Blender Addon"
-    bl_label = "Blender Addon"
+    bl_label = "Parametros de simulacion"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
 
     def draw(self, context):
-        pass
+        layout = self.layout
+        props = context.scene.custom_addon_props
+        layout.prop(props, "humidity")
+        layout.prop(props, "sun_hours")
+        layout.prop(props, "temperature")
+        layout.separator()
+        
 
 
 class ADDONNAME_PT_tools(Panel):
@@ -38,11 +44,6 @@ class ADDONNAME_PT_tools(Panel):
         layout = self.layout
     # Controles de la simulación
         # scene = context.scene
-        props = context.scene.custom_addon_props
-        layout.prop(props, "humidity")
-        layout.prop(props, "sun_hours")
-        layout.prop(props, "temperature")
-        layout.separator()
         layout.operator(
             ADDONNAME_OT_create_cube.bl_idname,
             text="Create cube", icon="CUBE")

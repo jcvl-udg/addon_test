@@ -8,8 +8,10 @@ Blender Add-on operators module.
 from bpy.types import Operator
 from bpy.ops import mesh
 
+# importing local libs
 from .test import pruebini
-
+import lsystem
+from lsystem.examples.capsella_bursa_pastoris import simulate_capsella
 
 class ADDONNAME_OT_create_cube(Operator):
     """Operator to create a primitive cube in the scene."""
@@ -34,7 +36,21 @@ class ADDONNAME_OT_create_capsella(Operator):
     def execute(self, context):
         props = context.scene.custom_addon_props
         self.report({'INFO'}, f"Humidity: {props.humidity}, Sun Hours: {props.sun_hours}, Temperature: {props.temperature}")
-        return {"FINISHED"}
+    # Crear un objeto de ejecución del sistema L
+        ex = lsystem.exec.Exec()
+                # Ejecutar la simulación
+        try:
+            simulate_capsella(
+                ex, 
+                humidity=props.humidity, 
+                sun_hours=props.sun_hours, 
+                temperature=props.temperature,
+            )
+            self.report({'INFO'}, "Friend like me!")
+        except Exception as e:
+            self.report({'ERROR'}, f"Error al generar la planta: {str(e)}")
+        
+        return {'FINISHED'}
 
 registrable = [
     ADDONNAME_OT_create_cube,

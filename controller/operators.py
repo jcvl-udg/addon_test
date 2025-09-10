@@ -8,7 +8,7 @@ Blender Add-on operators module.
 from bpy.types import Operator
 from bpy.ops import mesh
 
-from test import pruebini
+from .test import pruebini
 
 
 class ADDONNAME_OT_create_cube(Operator):

@@ -3,6 +3,9 @@ Blender Add-on Template
 
 Blender Add-on operators module.
 """
+#importing maths lib
+from mathutils import *
+from math import *
 
 # Blender-Python API imports
 from bpy.types import Operator

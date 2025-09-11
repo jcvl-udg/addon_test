@@ -6,6 +6,8 @@ Best practices: parameterization, stateful Exec, ready for custom interpretation
 from mathutils import *
 from math import *
 
+from mathutils import Vector
+
 import lsystem.exec
 
 def make_capsella(exec_obj, humidity=50, sun_hours=8, temperature=20, soil_nutrients=50, co2_concentration=400, seasonal_variation=0):
@@ -38,7 +40,7 @@ def make_capsella(exec_obj, humidity=50, sun_hours=8, temperature=20, soil_nutri
     exec_obj.add_rule("X(t)", "^(50):p(surface)[[-ffff++[fff[++f{F(0)]F(0)]F(0)]F(0)++ffffF(0)--fffF(0)--fF(0)}];%", "eq(t,0)")
 
     # Example: set tropism (gravity)
-    exec_obj.set_tropism((0, 0, -1), 0.2)
+    exec_obj.set_tropism(Vector(0, 0, -1), 0.2)
 
     # Example: set custom interpretation (optional, for advanced geometry)
     # def custom_F(symbol, params):

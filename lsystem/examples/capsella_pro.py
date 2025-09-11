@@ -27,7 +27,7 @@ def make_capsella(exec_obj, humidity=50, sun_hours=8, temperature=20, soil_nutri
     # Growth rules using placeholders
     exec_obj.add_rule("aa(t)", "[&(branch_angle)L]/(137.5)I(10)aa(sub(t,1))", "gt(t,0)")
     exec_obj.add_rule("aa(t)", "[&(branch_angle)L]/(137.5)I(10)A", "eq(t,0)")
-    exec_obj.add_rule("A", "[&(leaf_angle)uu(4)FFI(10)I(5)X(5)K{mul('K',flower_size))}]/(137.5)I(8)A")
+    exec_obj.add_rule("A", "[&(leaf_angle)uu(4)FFI(10)I(5)X(5)K{mul('K',flower_size)}]/(137.5)I(8)A")
     exec_obj.add_rule("I(t)", "FI(sub(t,1))", "gt(t,0)")
     exec_obj.add_rule("I(t)", "F", "eq(t,0)")
     exec_obj.add_rule("ii(t)", "fii(sub(t,1))", "gt(t,0)")

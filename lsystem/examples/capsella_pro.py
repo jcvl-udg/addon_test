@@ -2,6 +2,9 @@
 Capsella Bursa-Pastoris L-system simulation.
 Best practices: parameterization, stateful Exec, ready for custom interpretation/tropism.
 """
+#importing maths lib
+from mathutils import *
+from math import *
 
 import lsystem.exec
 

@@ -1,50 +1,25 @@
 # Blender Add-on (L-system)
 
+## Herramientas(core)
 ![Python](https://img.shields.io/badge/Python-3.13+-3776AB?logo=python&logoColor=white)
 ![Blender](https://img.shields.io/badge/Blender-4.4.3+-F5792A?logo=blender&logoColor=white)
-![L-system](https://github.com/krljg/lsystem)
-![Blender-Addon-Template](https://github.com/doramgajo/blender-addon-template)
 
-## Development instructions
+#### Repositorios usados
+- [L-system](https://github.com/krljg/lsystem)
 
-This guide shows how to set up a custom scripts folder so you can reload your
-add-ons without restarting **Blender**.
+- [Blender-Addon-Template](https://github.com/doramgajo/blender-addon-template)
 
-### Open preferences
+## Instalación
 
-Open **Blender** preferences by pressing `Ctrl` + `,` or going to `Edit` →
-`Preferences` in the **Blender** menu.
+La guia completa se encuentra en el repositorio del template basico, el addon esta pensado para ser descargado como " .zip " y arrastrado al entorno de blender para instalarse
 
-<p align="center">
-    <img src="docs/media/blender_addon_01.webp" alt="Open preferences">
-</p>
+#### Que es esto?
 
-### Add custom scripts directory
+Este desarrollo contiene una extension de la libreria "L-system" usando 
+el "addon template" como base para desarrollar
+la libreria esta enfocada en modelos paleobotanicos
 
-In the File Paths section, add a custom scripts directory.
-> [!NOTE]
-Make sure there is a directory named 
-`addons` (lowercase) inside the selected folder.
-
-<p align="center">
-    <img src="docs/media/blender_addon_02.webp" alt="Add scripts directory">
-</p>
-
-### Save preferences
-
-Save your preferences so the settings persist between **Blender** sessions.
-
-### Refresh local add-ons
-Refresh local add-ons. Your add-on should now appear in the list for enabling/disabling.
-
-> [!NOTE]
-Reload your add-on during development by refreshing local add-ons again with no need to restart Blender.
-
-<p align="center">
-    <img src="docs/media/blender_addon_03.webp" alt="Refresh add-ons list">
-</p>
-
-### Activate the addon
+##### Activate the addon
 
 Search for your add-on and activate it.
 
@@ -54,22 +29,14 @@ Search for your add-on and activate it.
 
 ## Custom scripts directory structure
 
-Here’s an example of how your custom scripts directory might be organized when adding **Blender** add-ons.
-
-> [!NOTE]
-**Blender** supports both single-file and folder-based add-ons.
-
+Este es un ejemplo del arbol de carpetas que podrias ver si entras a la carpeta de addons de **Blender**
+<!-- > [!NOTE] -->
 <pre>
 custom scripts directory/
     └── addons/
-        ├── addon.py              # Single-file add-on
-        └── addon_folder/         # Folder-based add-on
+        ├── addon_exist.py      # Single-file add-on
+        └── addon_test_folder/  # Folder-based add-on
             ├── __init__.py
             ├── other_module.py
             └── ...
 </pre>
-
-
-Este desarrollo contiene una extension de la libreria "L-system" usando 
-el "addon template" como base del desarrollo
-la libreria esta enfocada en el desarrollo de modelos paleobotanicos

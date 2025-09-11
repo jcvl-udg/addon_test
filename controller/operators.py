@@ -13,20 +13,29 @@ from .test import pruebini
 import lsystem
 from ..lsystem.examples.capsella_bursa_pastoris import simulate_capsella
 
+from ..lsystem.examples.capsella_pro import simulate_capsella as simulate_capsella_pro
+
 class ADDONNAME_OT_create_cube(Operator):
     """Operator to create a primitive cube in the scene."""
     bl_idname = "addonname.create_cube"
     bl_label = "Create cube"
 
     def execute(self, context):
-        # props = context.scene.lsystem_props
+        props = context.scene.custom_addon_props
+        self.report({'INFO'}, f"Humidity: {props.humidity}, Sun Hours: {props.sun_hours}, Temperature: {props.temperature}")
+    # Crear un objeto de ejecución del sistema L
+        exc = lsystem.exec.Exec()
+                # Ejecutar la simulación
         try:
-            mesh.primitive_cube_add()
-            pruebini()
-            # self.report({'INFO'}, f"Props: {str(props)}")
-            self.report({'INFO'}, "Pruebini passed")
+            simulate_capsella_pro(
+                exc, 
+                humidity=props.humidity, 
+                sun_hours=props.sun_hours, 
+                temperature=props.temperature,
+            )
+            self.report({'INFO'}, "Friend like me!")
         except Exception as e:
-            self.report({'ERROR'}, f"Error al llamar metodo: {str(e)}")
+            self.report({'ERROR'}, f"Error al generar la planta: {str(e)}")
         return {"FINISHED"}
 
 class ADDONNAME_OT_create_capsella(Operator):

@@ -48,3 +48,26 @@ def simulate_capsella(exec_obj, humidity=50, sun_hours=8, temperature=20, soil_n
     make_capsella(exec_obj, humidity, sun_hours, temperature, soil_nutrients, co2_concentration, seasonal_variation)
     # Run the simulation
     exec_obj.exec(min_iterations=min_iterations, max_iterations=max_iterations)
+
+
+
+# Use define() for Constants
+
+#1
+# Why: This lets you parameterize your L-system rules, making your model flexible and scientifically accurate.
+# How: Instead of hard-coding values into rule strings, use placeholders and set their values with exec_obj.define("angle", value).
+# Use set_interpretation()
+
+#2
+# Why: This allows you to bind custom Python functions to symbols, enabling complex geometry, growth logic, and even environmental responses.
+# How: You can create custom mesh generation, simulate damage, or phototropism by linking Python functions to L-system symbols.
+# Use set_tropism()
+
+#3
+# Why: Tropism simulates real plant responses to gravity and light, which is essential for paleobotany and realistic plant modeling.
+# How: Call exec_obj.set_tropism(vector, strength) to simulate bending.
+# Stateful Use of Exec
+
+#4
+# Why: Avoid rebuilding the rules every time. Set up your L-system once, then run simulations with different parameters efficiently.
+# How: Configure axiom, rules, constants, and interpretations once, then call exec() with different iterations or seeds.

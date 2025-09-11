@@ -15,19 +15,19 @@ def make_capsella(exec_obj, humidity=50, sun_hours=8, temperature=20, soil_nutri
     Configure Capsella plant rules using Exec best practices.
     """
     # Define constants for parameterization
-    exec_obj.define("branch_angle", 70 + (humidity / 100) * 10 + (seasonal_variation * 15))
-    exec_obj.define("leaf_angle", 18 + sun_hours * 2)
-    exec_obj.define("flower_size", 10 + (temperature - 20) * 0.3 + (co2_concentration / 400) * 1.5)
-    exec_obj.define("stem_length", 9 + (soil_nutrients / 100) * 2 + (temperature - 20) * 0.2)
+    exec_obj.define("branch_angle", str( 70 + (humidity / 100) * 10 + (seasonal_variation * 15) ) )
+    exec_obj.define("leaf_angle", str( 18 + sun_hours * 2 ) )
+    exec_obj.define("flower_size", str( 10 + (temperature - 20) * 0.3 + (co2_concentration / 400) * 1.5 ) )
+    exec_obj.define("stem_length", str( 9 + (soil_nutrients / 100) * 2 + (temperature - 20) * 0.2 ) )
 
     # Set axiom with placeholders
-    exec_obj.set_axiom("p(subsurf)I(#stem_length#)aa(13)")
+    exec_obj.set_axiom("p(subsurf)I(stem_length)aa(13)")
     exec_obj.rules = []
 
     # Growth rules using placeholders
-    exec_obj.add_rule("aa(t)", "[&(#branch_angle#)L]/(137.5)I(10)aa(sub(t,1))", "gt(t,0)")
-    exec_obj.add_rule("aa(t)", "[&(#branch_angle#)L]/(137.5)I(10)A", "eq(t,0)")
-    exec_obj.add_rule("A", "[&(#leaf_angle#)uu(4)FFI(10)I(5)X(5)K{'K'*int(#flower_size#)}]/(137.5)I(8)A")
+    exec_obj.add_rule("aa(t)", "[&(branch_angle)L]/(137.5)I(10)aa(sub(t,1))", "gt(t,0)")
+    exec_obj.add_rule("aa(t)", "[&(branch_angle)L]/(137.5)I(10)A", "eq(t,0)")
+    exec_obj.add_rule("A", "[&(leaf_angle)uu(4)FFI(10)I(5)X(5)K{mul('K',flower_size))}]/(137.5)I(8)A")
     exec_obj.add_rule("I(t)", "FI(sub(t,1))", "gt(t,0)")
     exec_obj.add_rule("I(t)", "F", "eq(t,0)")
     exec_obj.add_rule("ii(t)", "fii(sub(t,1))", "gt(t,0)")

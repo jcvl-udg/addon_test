@@ -18,7 +18,7 @@ from ..lsystem.examples.capsella_pro import simulate_capsella as simulate_capsel
 class ADDONNAME_OT_create_cube(Operator):
     """Operator to create a primitive cube in the scene."""
     bl_idname = "addonname.create_cube"
-    bl_label = "Create cube"
+    bl_label = "Simular planta con Set Define"
 
     def execute(self, context):
         props = context.scene.custom_addon_props
@@ -41,7 +41,7 @@ class ADDONNAME_OT_create_cube(Operator):
 class ADDONNAME_OT_create_capsella(Operator):
     """Operador para crear un ejemplo de capsella_bursa."""
     bl_idname = "addonname.create_capsella"
-    bl_label = "Simular Planta"
+    bl_label = "Simular Planta Exec simple (hardcoded)"
     def execute(self, context):
         props = context.scene.custom_addon_props
         self.report({'INFO'}, f"Humidity: {props.humidity}, Sun Hours: {props.sun_hours}, Temperature: {props.temperature}")

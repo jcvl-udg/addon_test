@@ -18,14 +18,14 @@ from .controller import operators
 from .controller.props import CustomAddonProps
 
 bl_info = {
-    "name": "Blender Add-on Template",
-    "description": "Template used as a structured starting point for Blender addons",
-    "author": "Doramas García Jorge (doramgajo)",
-    "version": (0, 0, 1),
+    "name": "Blender Add-on Test(Paleo-Lsys- MEX)",
+    "description": "Addon designed 4 basic plant simulation ",
+    "author": "Lopez Juan (snowtrash)",
+    "version": (0, 0, 2),
     "blender": (4, 4, 3),
     "location": "View3D > Sidebar > Blender Addon Template tab",
-    "warning": "Experimental under-development add-on",
-    "tracker_url": "https://github.com/doramgajo/blender-addon-template/issues",
+    "warning": "Add-on Experimental en-desarrollo",
+    "tracker_url": "https://github.com/jcvl-udg/addon_test/issues",
     "category": "3D View"
 }
 _registrable_classes = \

@@ -45,11 +45,11 @@ class ADDONNAME_PT_tools(Panel):
         # scene = context.scene
         layout.operator(
             ADDONNAME_OT_create_cube.bl_idname,
-            text="Create cube", icon="CUBE")
+            text="Capsella_pro.py", icon="CUBE")
         layout.separator()
         layout.operator(
             ADDONNAME_OT_create_capsella.bl_idname,
-            text="Simular Plante", icon="CUBE")
+            text="Broccoli", icon="CUBE")
 
 
 registrable = [

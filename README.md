@@ -1,10 +1,10 @@
 # Blender Add-on (L-system)
 
-#### Herramientas(core)
+## Herramientas(core)
 ![Python](https://img.shields.io/badge/Python-3.13+-3776AB?logo=python&logoColor=white)
 ![Blender](https://img.shields.io/badge/Blender-4.4.3+-F5792A?logo=blender&logoColor=white) 
 
-#### Repositorios
+### Repositorios
 - [L-system](https://github.com/krljg/lsystem)
 
 - [Blender-Addon-Template](https://github.com/doramgajo/blender-addon-template)
@@ -12,22 +12,12 @@
 - [Lpy](https://github.com/openalea/lpy/tree/master)
 - [Lpy-Docs](https://lpy.readthedocs.io/en/latest/)
 
+- [xarray-simlab](https://github.com/xarray-contrib/xarray-simlab)
+
 - [PlantGL and L-Py Jupyter widgets](https://github.com/fredboudon/plantgl-jupyter)
 
-##### Guias Paleobotany
-- [Extinct_plants](https://github.com/PaleoNate/extinct_plants)
+- [vmango-lab](https://github.com/jvail/vmango-lab)
 
-This is a place for the paleobotany and paleo-art communities to find references to papers with illustrations of extinct plants.
-
-- [Paleobotanical-3D-reconstruction-guides Public](https://github.com/robertlmenning/Paleobotanical-3D-reconstruction-guides)
-
-Paleobotany focused guides for segmenting, editing, and animating 3D reconstructions of plant fossils
-
-- [Paleobotany-Books](https://github.com/manjunath5496/Paleobotany-Books)
-
-"Now, evolution is the substance of fossils hoped for, the evidence of links not seen." ― Duane T. Gish
-
-- [Paleobotany_research](https://github.com/BenjaminVanOttenberg/paleobotany_research)
 
 ## Instalación
 
@@ -46,15 +36,18 @@ mediante las técnicas:
 
 [1]
 
-### Capturas en funcionamiento
-v.0.1
---- 
+## Capturas en funcionamiento
+- v.0.1
+
 En esta version se implementa el desarrollo basico de un ejemplar de capsella bursa pastoris
 Solo se incluyen 3 variables de influencia a la simulacion del L-system con parametros.
 
+```
 Capsella Bursa-Pastoris L-system simulation.
-See figure 3.5 in 'Algorithmic Beauty of Plants' (http://algorithmicbotany.org/papers/abop/abop.pdf), page 74.
-
+See figure 3.5 in 'Algorithmic Beauty of Plants 
+(http://algorithmicbotany.org/papers/abop/abop.pdf)
+page 74
+```
 [3]
 
 <p align="center">
@@ -76,9 +69,34 @@ Este es un ejemplo del arbol de carpetas que podrias ver si entras a la carpeta 
 </pre>
 
 
-#### Referenceias
+### Paleobotánica en México
+
+[Formación El Cien - B.C.S](https://paleobiologia.wixsite.com/evolucionplantae/formacion-el-cien)
+
+[Formación Olmos - COAH](https://paleobiologia.wixsite.com/evolucionplantae/formacion-olmos)
+
+
+### Guias Paleobotany
+
+- [Extinct_plants](https://github.com/PaleoNate/extinct_plants)
+
+This is a place for the paleobotany and paleo-art communities to find references to papers with illustrations of extinct plants.
+
+- [Paleobotanical-3D-reconstruction-guides Public](https://github.com/robertlmenning/Paleobotanical-3D-reconstruction-guides)
+
+Paleobotany focused guides for segmenting, editing, and animating 3D reconstructions of plant fossils
+
+- [Paleobotany-Books](https://github.com/manjunath5496/Paleobotany-Books)
+
+"Now, evolution is the substance of fossils hoped for, the evidence of links not seen." ― Duane T. Gish
+
+- [Paleobotany_research](https://github.com/BenjaminVanOttenberg/paleobotany_research)
+
+### Referencias
+
 ```
-[1] Plantas fósiles e inferencia paleoclimática: aproximaciones metodológicas y algunos ejemplos para México
+[1] Plantas fósiles e inferencia paleoclimática: aproximaciones metodológicas 
+y algunos ejemplos para México
 
 Hugo I. Martínez-Cabrera 
 José L. Ramírez-Garduño2
@@ -118,11 +136,17 @@ Springer-Verlag 1996
 ```
 
 ```
-Using L−Systems for Modeling the Architecture and Physiology of Growing Trees: The L−PEACH Model Mitch Allen (2004)
+Using L−Systems for Modeling the Architecture and Physiology of Growing Trees: 
+The L−PEACH Model Mitch Allen (2004)
 
 Przemyslaw Prusinkiewicz
 Theodore DeJong
 
 Department of Pomology, University of California, Davis
 Department of Computer Science, University of Calgary
+```
+
+```
+V-Mango: a functional–structural model of mango tree growth, development and fruit production 
+Annals of Botany, Volume 126, Issue 4, 14 September 2020, Pages 745–763, https://doi.org/10.1093/aob/mcaa089
 ```

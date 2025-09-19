@@ -23,7 +23,13 @@
 
 La guia completa se encuentra en el repositorio del [template](https://github.com/doramgajo/blender-addon-template) 
 
-El addon esta pensado para ser **descargado como " .zip " y arrastrado al entorno de blender** para instalarse
+El addon esta pensado para ser **descargado como " .zip " y arrastrado al entorno de blender** para instalarse (Bsender ~3.6)
+
+**DISCLAIMER**
+
+Actualmente se necesita una copia de la carpeta L-system dentro de "/addons/" 
+para el correcto funcionamiento en Blender ~ 4.5
+
 
 #### Que es esto?
 

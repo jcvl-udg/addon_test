@@ -9,11 +9,13 @@ from bpy.types import Operator
 from bpy.ops import mesh
 
 # importing local libs
-from .test import pruebini
-import lsystem
-from ..lsystem.examples.capsella_bursa_pastoris import simulate_capsella
 
+import lsystem
+# from ..lsystem.examples.capsella_bursa_pastoris import simulate_capsella
 from ..lsystem.examples.capsella_pro import simulate_capsella as simulate_capsella_pro
+
+# nueva_planta?
+from ..lsystem.examples.new_plant import simulate_flowering_plant as simular_flore
 
 class ADDONNAME_OT_create_cube(Operator):
     """Operator to create a primitive cube in the scene."""
@@ -49,7 +51,7 @@ class ADDONNAME_OT_create_capsella(Operator):
         ex = lsystem.exec.Exec()
                 # Ejecutar la simulación
         try:
-            simulate_capsella(
+            simular_flore(
                 ex, 
                 humidity=props.humidity, 
                 sun_hours=props.sun_hours, 

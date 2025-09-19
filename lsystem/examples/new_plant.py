@@ -15,7 +15,7 @@ def make_flowering_plant(exec_obj, humidity=50, sun_hours=8, temperature=20,
         mesh = bpy.data.meshes.new("sphere")
         obj = bpy.data.objects.new("sphere", mesh)
         bm = bmesh.new()
-        bmesh.ops.create_uvsphere(bm, u_segments=32, v_segments=16, diameter=66)
+        bmesh.ops.create_uvsphere(bm, u_segments=32, v_segments=16, radius=16)
         bm.to_mesh(mesh)
         bm.free()
         obj.location = lsystem.util.matmul(turtle.transform, mathutils.Vector((0.0, 0.0, 0.0)))

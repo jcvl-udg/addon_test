@@ -23,7 +23,7 @@
 
 La guia completa se encuentra en el repositorio del [template](https://github.com/doramgajo/blender-addon-template) 
 
-El addon esta pensado para ser **descargado como " .zip " y arrastrado al entorno de blender** para instalarse (Bsender ~3.6)
+El addon esta pensado para ser **descargado como " .zip " y arrastrado al entorno de blender** para instalarse (Blender ~3.6)
 
 **DISCLAIMER**
 

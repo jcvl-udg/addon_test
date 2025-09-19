@@ -79,3 +79,6 @@ def setup_custom_interpretation(exec_obj):
 # exec_obj = lsystem.exec.Exec()
 # simulate_flowering_plant(exec_obj)
 # setup_custom_interpretation(exec_obj)
+
+# Tirando Issues en la primer prueba
+#Error al generar la planta: must be real number, not method

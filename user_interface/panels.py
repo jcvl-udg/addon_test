@@ -49,7 +49,7 @@ class ADDONNAME_PT_tools(Panel):
         layout.separator()
         layout.operator(
             ADDONNAME_OT_create_capsella.bl_idname,
-            text="Broccoli", icon="CUBE")
+            text="New_plant - Testing ", icon="CUBE")
 
 
 registrable = [

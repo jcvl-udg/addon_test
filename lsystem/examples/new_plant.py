@@ -25,13 +25,7 @@ def make_flowering_plant(exec_obj, humidity=50, sun_hours=8, temperature=20,
         obj_base_pairs.append((obj, base))
         
     def make_leaf_geometry(turtle, parameters, bl_obj, obj_base_pairs, context):
-        # Create a new mesh and object for the leaf
-        # Simple leaf (Figure 5.6 b in Algorithmic Beauty of Plants on page 124)
-        mesh = bpy.data.meshes.new("leaf_mesh")
-        leaf_obj = bpy.data.objects.new("leaf", mesh)
-        bm = bmesh.new()
-
-        # Create a new Exec object for the leaf L-system
+        # Run the leaf L-system (returns a list of objects)
         leaf_exec = lsystem.exec.Exec()
         leaf_exec.define("LA", "5")
         leaf_exec.define("RA", "1")
@@ -43,23 +37,28 @@ def make_flowering_plant(exec_obj, humidity=50, sun_hours=8, temperature=20,
         leaf_exec.add_rule("B(t)", "f(LB,RB)B(sub(t,PD))", condition="gt(t,0)")
         leaf_exec.add_rule("f(s,r)", "f(mul(s,r),r)")
 
-        # Run the leaf L-system, generating geometry into bm (bmesh)
-        # You may need to adapt this part depending on how your L-system outputs geometry
-        # For example, if your L-system can output to a bmesh:
-        leaf_exec.exec(min_iterations=20, angle=60, bmesh_out=bm)
+        # Run the L-system, get the objects
+        leaf_exec.exec(min_iterations=20, angle=60, context=context)
+        leaf_objs = leaf_exec.objects
 
-        # Write the bmesh to the mesh
-        bm.to_mesh(mesh)
-        bm.free()
+        # Deselect all, select only the leaf objects
+        bpy.ops.object.select_all(action='DESELECT')
+        for obj in leaf_objs:
+            obj.select_set(True)
+        context.view_layer.objects.active = leaf_objs[0]
 
-        # Set the leaf object's transform and parent
-        leaf_obj.location = lsystem.util.matmul(turtle.transform, mathutils.Vector((0.0, 0.0, 0.0)))
-        leaf_obj.rotation_euler = turtle.transform.to_euler()
-        leaf_obj.parent = bl_obj.object
+        # Join all selected objects into one
+        bpy.ops.object.join()
+        joined_leaf = context.view_layer.objects.active
 
-        # Link the object to the scene
-        base = lsystem.util.link(context, leaf_obj)
-        obj_base_pairs.append((leaf_obj, base))
+        # Set transform and parent
+        joined_leaf.location = lsystem.util.matmul(turtle.transform, mathutils.Vector((0.0, 0.0, 0.0)))
+        joined_leaf.rotation_euler = turtle.transform.to_euler()
+        joined_leaf.parent = bl_obj.object
+
+        # Link to scene and track
+        base = lsystem.util.link(context, joined_leaf)
+        obj_base_pairs.append((joined_leaf, base))
 
     # Define constants for parameterization
     exec_obj.define("branch_angle", str( 70 + (humidity / 100) * 10 + (seasonal_variation * 15) ) )

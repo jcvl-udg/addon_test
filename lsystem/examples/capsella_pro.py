@@ -41,7 +41,7 @@ def make_capsella(exec_obj, humidity=50, sun_hours=8, temperature=20, soil_nutri
 
     # Example: set tropism (gravity)
     
-    # exec_obj.set_tropism(Vector((0, 0, -1)), 0.2)
+    exec_obj.set_tropism(Vector((0, 0, -1)), 0.066)
 
     # Example: set custom interpretation (optional, for advanced geometry)
     # def custom_F(symbol, params):

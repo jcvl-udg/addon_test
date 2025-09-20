@@ -23,8 +23,45 @@ def make_flowering_plant(exec_obj, humidity=50, sun_hours=8, temperature=20,
         base = lsystem.util.link(context, obj)
         obj.parent = bl_obj.object
         obj_base_pairs.append((obj, base))
+        
+    def make_leaf_geometry(turtle, parameters, bl_obj, obj_base_pairs, context):
+        # Create a new mesh and object for the leaf
+        # Simple leaf (Figure 5.6 b in Algorithmic Beauty of Plants on page 124)
+        mesh = bpy.data.meshes.new("leaf_mesh")
+        leaf_obj = bpy.data.objects.new("leaf", mesh)
+        bm = bmesh.new()
 
-        # Define constants for parameterization
+        # Create a new Exec object for the leaf L-system
+        leaf_exec = lsystem.exec.Exec()
+        leaf_exec.define("LA", "5")
+        leaf_exec.define("RA", "1")
+        leaf_exec.define("LB", "0.6")
+        leaf_exec.define("RB", "1.06")
+        leaf_exec.define("PD", "0.25")
+        leaf_exec.set_axiom("p(surface)F(0)A(0)")
+        leaf_exec.add_rule("A(t)", "f(LA,RA)[-B(t)F(0)][A(add(t,1))][+B(t)F(0)]")
+        leaf_exec.add_rule("B(t)", "f(LB,RB)B(sub(t,PD))", condition="gt(t,0)")
+        leaf_exec.add_rule("f(s,r)", "f(mul(s,r),r)")
+
+        # Run the leaf L-system, generating geometry into bm (bmesh)
+        # You may need to adapt this part depending on how your L-system outputs geometry
+        # For example, if your L-system can output to a bmesh:
+        leaf_exec.exec(min_iterations=20, angle=60, bmesh_out=bm)
+
+        # Write the bmesh to the mesh
+        bm.to_mesh(mesh)
+        bm.free()
+
+        # Set the leaf object's transform and parent
+        leaf_obj.location = lsystem.util.matmul(turtle.transform, mathutils.Vector((0.0, 0.0, 0.0)))
+        leaf_obj.rotation_euler = turtle.transform.to_euler()
+        leaf_obj.parent = bl_obj.object
+
+        # Link the object to the scene
+        base = lsystem.util.link(context, leaf_obj)
+        obj_base_pairs.append((leaf_obj, base))
+
+    # Define constants for parameterization
     exec_obj.define("branch_angle", str( 70 + (humidity / 100) * 10 + (seasonal_variation * 15) ) )
     exec_obj.define("leaf_angle", str( 18 + sun_hours * 2 ) )
     exec_obj.define("flower_size", str( 10 + (temperature - 20) * 0.3 + (co2_concentration / 400) * 1.5 ) )
@@ -50,6 +87,7 @@ def make_flowering_plant(exec_obj, humidity=50, sun_hours=8, temperature=20,
     exec_obj.add_rule("X(t)", "^(50):p(surface)[[-ffff++[fff[++f{F(0)]F(0)]F(0)]F(0)++ffffF(0)--fffF(0)--fF(0)}];%", "eq(t,0)")
 
     exec_obj.set_interpretation("K", sphere)
+    exec_obj.set_interpretation("L", make_leaf_geometry)
 
 def simulate_flowering_plant(exec_obj, humidity=50, sun_hours=8, temperature=20, 
                            soil_nutrients=50, co2_concentration=400, seasonal_variation=0, 
@@ -61,5 +99,6 @@ def simulate_flowering_plant(exec_obj, humidity=50, sun_hours=8, temperature=20,
     exec_obj.exec(min_iterations=min_iterations, max_iterations=max_iterations)
 
 
-# Tirando Issues en la primer prueba
-#Error al generar la planta: must be real number, not method
+# Capsella bursa pastoris con Spheres reemplazando la flor
+#TO-DO:
+# CREAR NUEVA GEOMETRIA PARA LAS FLORES

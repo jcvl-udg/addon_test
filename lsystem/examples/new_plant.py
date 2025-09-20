@@ -6,6 +6,8 @@ import lsystem.util
 import mathutils
 import bmesh
 
+import random
+
 def make_flowering_plant(exec_obj, humidity=50, sun_hours=8, temperature=20, 
                         soil_nutrients=50, co2_concentration=400, seasonal_variation=0):
     """
@@ -25,13 +27,17 @@ def make_flowering_plant(exec_obj, humidity=50, sun_hours=8, temperature=20,
         obj_base_pairs.append((obj, base))
         
     def make_leaf_geometry(turtle, parameters, bl_obj, obj_base_pairs, context):
+        # Unique prefix for this leaf instance
+        leaf_prefix = f"leaf_{random.randint(0, 100000)}_"
+
         # Run the leaf L-system (returns a list of objects)
         leaf_exec = lsystem.exec.Exec()
-        leaf_exec.define("LA", "5")
-        leaf_exec.define("RA", "1")
-        leaf_exec.define("LB", "0.6")
-        leaf_exec.define("RB", "1.06")
-        leaf_exec.define("PD", "0.25")
+        # Smaller leaf parameters
+        leaf_exec.define("LA", "1.5")
+        leaf_exec.define("RA", "0.5")
+        leaf_exec.define("LB", "0.2")
+        leaf_exec.define("RB", "1.01")
+        leaf_exec.define("PD", "0.1")
         leaf_exec.set_axiom("p(surface)F(0)A(0)")
         leaf_exec.add_rule("A(t)", "f(LA,RA)[-B(t)F(0)][A(add(t,1))][+B(t)F(0)]")
         leaf_exec.add_rule("B(t)", "f(LB,RB)B(sub(t,PD))", condition="gt(t,0)")
@@ -40,6 +46,10 @@ def make_flowering_plant(exec_obj, humidity=50, sun_hours=8, temperature=20,
         # Run the L-system, get the objects
         leaf_exec.exec(min_iterations=20, angle=60, context=context)
         leaf_objs = leaf_exec.objects
+
+        # Rename all leaf objects with the prefix
+        for obj in leaf_objs:
+            obj.name = leaf_prefix + obj.name
 
         # Deselect all, select only the leaf objects
         bpy.ops.object.select_all(action='DESELECT')
@@ -56,8 +66,12 @@ def make_flowering_plant(exec_obj, humidity=50, sun_hours=8, temperature=20,
         joined_leaf.rotation_euler = turtle.transform.to_euler()
         joined_leaf.parent = bl_obj.object
 
-        # Link to scene and track
-        base = lsystem.util.link(context, joined_leaf)
+        # Only link if not already in the scene
+        if joined_leaf.name not in context.scene.collection.objects:
+            base = lsystem.util.link(context, joined_leaf)
+        else:
+            base = joined_leaf
+
         obj_base_pairs.append((joined_leaf, base))
 
     # Define constants for parameterization

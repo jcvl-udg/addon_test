@@ -8,7 +8,7 @@ from math import *
 
 from mathutils import Vector
 
-from lsystem.exec import Exec as exec_obj
+from ..exec import Exec as exec_obj
 
 def make_capsella(exec_obj, humidity=50, sun_hours=8, temperature=20, soil_nutrients=50, co2_concentration=400, seasonal_variation=0):
     """

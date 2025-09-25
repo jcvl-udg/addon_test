@@ -1,5 +1,5 @@
 from mathutils import Vector
-import lsystem.exec
+# import lsystem.exec
 
 import bpy
 # import lsystem.util
@@ -8,9 +8,9 @@ import bmesh
 
 import random
 
-from lsystem.exec import Exec as L_Exec
-from lsystem.util import matmul as matmul
-from lsystem.util import link as link
+from ..exec import Exec as L_Exec
+from ..util import matmul as matmul
+from ..util import link as link
 
 def make_flowering_plant(exec_obj, humidity=50, sun_hours=8, temperature=20, 
                         soil_nutrients=50, co2_concentration=400, seasonal_variation=0):

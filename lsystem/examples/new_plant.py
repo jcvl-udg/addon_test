@@ -2,11 +2,15 @@ from mathutils import Vector
 import lsystem.exec
 
 import bpy
-import lsystem.util
+# import lsystem.util
 import mathutils
 import bmesh
 
 import random
+
+from lsystem.exec import Exec as L_Exec
+from lsystem.util import matmul as matmul
+from lsystem.util import link as link
 
 def make_flowering_plant(exec_obj, humidity=50, sun_hours=8, temperature=20, 
                         soil_nutrients=50, co2_concentration=400, seasonal_variation=0):
@@ -20,9 +24,9 @@ def make_flowering_plant(exec_obj, humidity=50, sun_hours=8, temperature=20,
         bmesh.ops.create_uvsphere(bm, u_segments=32, v_segments=16, radius=0.66)
         bm.to_mesh(mesh)
         bm.free()
-        obj.location = lsystem.util.matmul(turtle.transform, mathutils.Vector((0.0, 0.0, 0.0)))
+        obj.location = matmul(turtle.transform, mathutils.Vector((0.0, 0.0, 0.0)))
         obj.rotation_euler = turtle.transform.to_euler()
-        base = lsystem.util.link(context, obj)
+        base = link(context, obj)
         obj.parent = bl_obj.object
         obj_base_pairs.append((obj, base))
         
@@ -31,7 +35,7 @@ def make_flowering_plant(exec_obj, humidity=50, sun_hours=8, temperature=20,
         leaf_prefix = f"leaf_{random.randint(0, 100000)}_"
 
         # Run the leaf L-system (returns a list of objects)
-        leaf_exec = lsystem.exec.Exec()
+        leaf_exec = L_Exec()
         # Smaller leaf parameters
         leaf_exec.define("LA", "5")
         leaf_exec.define("RA", "1.15")
@@ -65,13 +69,13 @@ def make_flowering_plant(exec_obj, humidity=50, sun_hours=8, temperature=20,
         joined_leaf = context.view_layer.objects.active
 
         # Set transform and parent
-        joined_leaf.location = lsystem.util.matmul(turtle.transform, mathutils.Vector((0.0, 0.0, 0.0)))
+        joined_leaf.location = matmul(turtle.transform, mathutils.Vector((0.0, 0.0, 0.0)))
         joined_leaf.rotation_euler = turtle.transform.to_euler()
         joined_leaf.parent = bl_obj.object
 
         # Only link if not already in the scene
         if joined_leaf.name not in context.scene.collection.objects:
-            base = lsystem.util.link(context, joined_leaf)
+            base = link(context, joined_leaf)
         else:
             base = joined_leaf
 

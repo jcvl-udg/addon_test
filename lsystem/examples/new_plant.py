@@ -1,11 +1,8 @@
 from mathutils import Vector
-# import lsystem.exec
 
 import bpy
-# import lsystem.util
 import mathutils
 import bmesh
-
 import random
 
 from ..exec import Exec as L_Exec

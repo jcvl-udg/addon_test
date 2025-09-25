@@ -9,8 +9,9 @@ from bpy.types import Operator
 from bpy.ops import mesh
 
 # importing local libs
+# import lsystem
 
-import lsystem
+from ..lsystem.exec import Exec as L_Exec
 # from ..lsystem.examples.capsella_bursa_pastoris import simulate_capsella
 from ..lsystem.examples.capsella_pro import simulate_capsella as simulate_capsella_pro
 
@@ -26,7 +27,7 @@ class ADDONNAME_OT_create_cube(Operator):
         props = context.scene.custom_addon_props
         self.report({'INFO'}, f"Humidity: {props.humidity}, Sun Hours: {props.sun_hours}, Temperature: {props.temperature}")
     # Crear un objeto de ejecución del sistema L
-        exc = lsystem.exec.Exec()
+        exc = L_Exec()
                 # Ejecutar la simulación
         try:
             simulate_capsella_pro(
@@ -48,7 +49,7 @@ class ADDONNAME_OT_create_capsella(Operator):
         props = context.scene.custom_addon_props
         self.report({'INFO'}, f"Humidity: {props.humidity}, Sun Hours: {props.sun_hours}, Temperature: {props.temperature}")
     # Crear un objeto de ejecución del sistema L
-        ex = lsystem.exec.Exec()
+        ex = L_Exec()
                 # Ejecutar la simulación
         try:
             simular_flore(

@@ -9,7 +9,6 @@ from bpy.types import Operator
 from bpy.ops import mesh
 
 # importing local libs
-# import lsystem
 
 from ..lsystem.exec import Exec as L_Exec
 # from ..lsystem.examples.capsella_bursa_pastoris import simulate_capsella

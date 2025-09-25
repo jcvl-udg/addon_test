@@ -60,6 +60,15 @@ page 74
 <img src="docs/media/first_cap.webp" alt="Ejemplo del addon">
 </p>
 
+
+- v.0.1.1
+La primera prueba es sobre "leaf subsurface", se eligio reemplazar las hojas simples
+por un modelo de "rose leaf" y la inflorecencia por una "sphere" simple.
+
+<p align="center">
+<img src="docs/media/secnd_cap.webp" alt="Ejemplo del addon">
+</p>
+
 ## Estructura de carpetas 
 
 Este es un ejemplo del arbol de carpetas que podrias ver si entras a la carpeta de addons de **Blender**
@@ -68,6 +77,7 @@ Este es un ejemplo del arbol de carpetas que podrias ver si entras a la carpeta 
 4.5/scripts/
     └── addons/
         ├── addon_pre_exist.py  # Single-file add-on
+        ├── l-system/ ----- (?imprt issue?)
         └── addon_test_folder/  # Carpeta creada por blender
             ├── __init__.py
             ├── other_module.py

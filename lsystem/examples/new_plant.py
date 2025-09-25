@@ -33,18 +33,21 @@ def make_flowering_plant(exec_obj, humidity=50, sun_hours=8, temperature=20,
         # Run the leaf L-system (returns a list of objects)
         leaf_exec = lsystem.exec.Exec()
         # Smaller leaf parameters
-        leaf_exec.define("LA", "1.6")
-        leaf_exec.define("RA", "1")
-        leaf_exec.define("LB", "0.5")
-        leaf_exec.define("RB", "1.06")
-        leaf_exec.define("PD", "0.2")
-        leaf_exec.set_axiom("p(surface)F(0)A(0)")
-        leaf_exec.add_rule("A(t)", "f(LA,RA)[-B(t)F(0)][A(add(t,1))][+B(t)F(0)]")
-        leaf_exec.add_rule("B(t)", "f(LB,RB)B(sub(t,PD))", condition="gt(t,0)")
+        leaf_exec.define("LA", "2")
+        leaf_exec.define("RA", "1.15")
+        leaf_exec.define("LB", "0.7")
+        leaf_exec.define("RB", "1.25")
+        leaf_exec.define("LC", "1.5")
+        leaf_exec.define("RC", "1.19")
+        leaf_exec.set_axiom("p(surface)s(0.01)[{A(0,0)F(0)}][{A(0,1)F(0)}]")
+        leaf_exec.add_rule("A(t,d)", "F(0)f(LA,RA)F(0)[+B(t)f(LC,RC,t)F(0)}][+B(t){F(0)]A(add(t,1),d)", condition="eq(d,0)")
+        leaf_exec.add_rule("A(t,d)", "F(0)f(LA,RA)F(0)[-B(t)f(LC,RC,t)F(0)}][-B(t){F(0)]A(add(t,1),d)", condition="eq(d,1)")
+        leaf_exec.add_rule("B(t)", "f(LB,RB)B(sub(t,1))", condition="gt(t,0)")
         leaf_exec.add_rule("f(s,r)", "f(mul(s,r),r)")
+        leaf_exec.add_rule("f(s,r,t)", "f(mul(s,r),r,sub(t,1))", condition="gt(t,1)")
 
         # Run the L-system, get the objects
-        leaf_exec.exec(min_iterations=20, angle=60, context=context)
+        leaf_exec.exec(min_iterations=27, angle=60, context=context)
         leaf_objs = leaf_exec.objects
 
         # Rename all leaf objects with the prefix

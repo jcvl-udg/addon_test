@@ -93,13 +93,21 @@ Muchas de las angiospermas y coníferas descritas en la Formación Olmos eran en
 
 Los estudios de Weber (1972) ponen de manifiesto una dominancia de angiospermas dicotiledóneas con una gran biodiversidad (60 morfoespecies de las 80 morfoespecies de plantas fósiles observadas) que incluyen dentro de las monocotiledóneas posibles miembros de la familias Araceae (Pistia) y Arecaceae (Phoenicites Brongniart y Sabalites Saporta), y dentro de las dicotiledóneas, además de algunas indeterminadas, miembros de Magnoliaceae (Liriodendron Linnaeus), Lauraceae (Sassafras Nees y Eberm), Moraceae (Artocarpus Forster y Forster), Betulaceae (Betula Linnaeus), y Rhamnaceae (Zizyphus Linnaeus), además de los órgano-géneros Liriodendropsis Newberry y Manihotites Berry. Las localidades donde fueron estudiados cada uno de los fósiles de plantas descritos por Weber (1972) están reportadas en mayor detalle en Barrera-Escorcia (1982). Estrada-Ruiz et al. (2011) describieron en el Tajo el Nogalito en el Municipio de Múzquiz, un nuevo género y especie de angiosperma acuática (Exnelumbites callejasiae) relacionada con la Familia **Nelumbonaceae**. Del análisis de un total de 35 tipos distintos de hojas de eudicotiledóneas en la Formación Olmos, prevalece el orden Laurales y en menor proporción cf. Menispermaceae y **Nelumbonaceae** (Estrada-Ruiz et al., 2008).
 
+[Inferencia del clima y elevación de la formación Olmos, Coahuila,México, del Cretácico tardío (Maestrichtiano) mediante lafisonomía de hojas fósiles y determinación de nuevo material](https://ru.dgb.unam.mx/server/api/core/bitstreams/b2b42bce-4593-4417-a6f2-dd6d3c89fff2/content)
+
 [Síntesis de los trabajos paleobotánicos del Cretácico en México](https://www.scielo.org.mx/scielo.php?script=sci_arttext&pid=S1405-33222014000100009)
 
-### PaleoBioDB
+[Flora and climate of the Olmos Formation (upper Campanian–lower Maastrichtian), Coahuila, Mexico: a preliminary report](https://www.academia.edu/2103322/Flora_and_climate_of_the_Olmos_Formation_upper_Campanian_lower_Maastrichtian_Coahuila_Mexico_a_preliminary_report)
 
+[PaleobotánicaParaentenderlaevoluciónylabiodiversidaden México](https://www.botanicalsciences.com.mx/index.php/botanicalSciences/article/view/3122/4778)
+
+
+### PaleoBioDB
 [ThePaleobiology Database](https://paleobiodb.org/#/)
 [Family Nelumbonaceae Richard 1827 (lotus)](https://paleobiodb.org/classic/basicTaxonInfo?taxon_no=txn:55399)
 
+Otra DB 
+[SYNTHESYS+](https://www.synthesys.info/)
 
 ### Eq-aciones
 
@@ -122,15 +130,15 @@ B(t + 1)CD(t ∧ 0.5, t − 2) is written as
 A(t) : t > 5 → B(t + 1)CD(t ∧ 0.5, t − 2). (1.6)
 Derivation A production matches a module in a parametric word if the following
 conditions are met:
-• the letter in the module and the letter in the production predecessor are the same,
+• the letter in the module and the letter in the production predecessor are the same,
 • the number of actual parameters in the module is equal to the
 number of formal parameters in the production predecessor, and
 • the condition evaluates to true if the actual parameter values are
 substituted for the formal parameters in the production.
 A matching production can be applied to the module, creating a string
-of modules specified by the production successor. The actual parameter values are substituted for the formal parameters according to their
+of modules specified by the production successor. The actual parameter values are substituted for the formal parameters according to their
 position. For example, production (1.6) above matches a module A(9),
-since the letter A in the module is the same as in the production predecessor, there is one actual parameter in the module A(9) and one
+since the letter A in the module is the same as in the production predecessor, there is one actual parameter in the module A(9) and one
 formal parameter in the predecessor A(t), and the logical expression
 t > 5 is true for t = 9. The result of the application of this production
 is a parametric word B(10)CD(3, 7).
@@ -226,3 +234,10 @@ Annals of Botany, Volume 126, Issue 4, 14 September 2020, Pages 745–763, https
 ```
 
 [Fossil Plants as Tests of Climate (Albert Charles Seward) - Sedgwick Essay Prize for the Year 1892](https://github.com/manjunath5496/Paleobotany-Books/blob/master/pale(3).pdf)
+
+
+
+---sin acceso(?)
+Paratropical rainforest from the Olmos Formation (upper Campanian), Coahuila, Mexico
+Author links open overlay panel
+https://www.sciencedirect.com/science/article/abs/pii/S0195667123003415
